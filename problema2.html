@@ -1,0 +1,50 @@
+<!--
+ Problema 2:
+Desarrollar un programa en JavaScript que permita almacenar las edades de un grupo de 10 personas 
+en un vector y luego determinar:
+- Cuántas son menores de edad
+- Cuántas son mayores de edad
+- Cuántos son adultos mayores
+- La edad más baja
+- La edad más alta
+- El promedio de las edades
+
+ Este programa realiza cálculos estadísticos básicos sobre el grupo ingresado.
+-->
+<script>
+function analizarEdades() {
+  const edades = [15, 22, 34, 60, 45, 12, 18, 75, 30, 50];
+  let menores = 0;
+  let mayores = 0;
+  let adultosMayores = 0;
+  let suma = 0;
+
+  const edadMinima = Math.min(...edades);
+  const edadMaxima = Math.max(...edades);
+
+  for (const edad of edades) {
+    if (edad < 18) {
+      menores++;
+    } else if (edad < 60) {
+      mayores++;
+    } else {
+      adultosMayores++;
+    }
+    suma += edad;
+  }
+
+  const promedio = suma / edades.length;
+
+  console.log(" RESULTADOS DEL ANÁLISIS DE EDADES");
+  console.log("--------------------------------------");
+  console.log(" Edades registradas:", edades.join(", "));
+  console.log(" Menores de edad:", menores);
+  console.log(" Mayores de edad:", mayores);
+  console.log(" Adultos mayores:", adultosMayores);
+  console.log(" Edad mínima:", edadMinima);
+  console.log(" Edad máxima:", edadMaxima);
+  console.log(" Promedio de edades:", promedio.toFixed(2));
+}
+
+analizarEdades();
+</script>
